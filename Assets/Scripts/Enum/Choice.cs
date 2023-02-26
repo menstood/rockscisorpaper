@@ -1,8 +1,9 @@
-//create enum for rock scisor paper
-
+//create enum for rock scisor paper spock lizard
 public enum Choice
 {
     Rock,
-    Scissor,
-    Paper
+    Paper,
+    Scissors,
+    Spock,
+    Lizard
 }

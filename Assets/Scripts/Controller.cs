@@ -10,6 +10,10 @@ public class Controller : MonoBehaviour
     [SerializeField]
     private Button paperButton;
     [SerializeField]
+    private Button spockButton;
+    [SerializeField]
+    private Button lizardButton;
+    [SerializeField]
     private Text resultText;
     [SerializeField]
     private Text computerChoiceLabel;
@@ -17,8 +21,10 @@ public class Controller : MonoBehaviour
     void Start()
     {
         rockButton.onClick.AddListener(() => SelectChoice(Choice.Rock));
-        scissorButton.onClick.AddListener(() => SelectChoice(Choice.Scissor));
+        scissorButton.onClick.AddListener(() => SelectChoice(Choice.Scissors));
         paperButton.onClick.AddListener(() => SelectChoice(Choice.Paper));
+        spockButton.onClick.AddListener(() => SelectChoice(Choice.Spock));
+        lizardButton.onClick.AddListener(() => SelectChoice(Choice.Lizard));
     }
 
     //Select choice function for player
@@ -35,28 +41,28 @@ public class Controller : MonoBehaviour
     //Create GetRandomChoice
     Choice GetRandomChoice()
     {
-        var random = Random.Range(0, 3);
+        var random = Random.Range(0, 5);
         return (Choice)random;
     }
 
-    
-
-    // get result of the game by 2 input from choice enum without using if else
+    // get result of the game by 2 input from choice enum
     string GetResult(Choice playerChoice, Choice computerChoice)
     {
-        var result = (computerChoice - playerChoice + 3) % 3;
-        switch (result)
+        var result = (computerChoice - playerChoice) % 5;
+        var result_mod = result % 5;
+        if (result_mod == 0)
         {
-            case 0:
-                return "Draw";
-            case 1:
-                return "You Win";
-            case 2:
-                return "You Lose";
-            default:
-                return "Error";
+            return "Draw";
         }
-    }
+        else if (result_mod % 2 == 0)
+        {
+            return "You Lost";
+        }
+        else// (result_mod % 2 == 1)
+        {
+            return "You Won";
+        }
 
+    }
 
 }
