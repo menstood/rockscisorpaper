@@ -758,8 +758,8 @@ MonoBehaviour:
   rockButton: {fileID: 553157780}
   scissorButton: {fileID: 1649712523}
   paperButton: {fileID: 1222430689}
-  spockButton: {fileID: 0}
-  lizardButton: {fileID: 0}
+  spockButton: {fileID: 98477638}
+  lizardButton: {fileID: 1146948963}
   resultText: {fileID: 998701839}
   computerChoiceLabel: {fileID: 1640060934}
 --- !u!4 &1002682349
